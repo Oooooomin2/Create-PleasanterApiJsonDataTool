@@ -1,0 +1,32 @@
+﻿<Window x:Class="CreatePleasanterApiJsonDataTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreatePleasanterApiJsonDataTool"
+        mc:Ignorable="d"
+        Title="プリザンターAPI Jsonデータ製造機" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="ApiVersionLabel" FontSize="18" Margin="20 10 20 10" Grid.Row="0" Grid.Column="0">Api Version</Label>
+        <ComboBox x:Name="ApiVersionComboBox" Margin="20 10 20 10" FontSize="18" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding ApiVersion}"/>
+        <Label x:Name="RequestTypeLabel" FontSize="18" Margin="20 10 20 10" Grid.Row="0" Grid.Column="2">操作</Label>
+        <ComboBox x:Name="RequestTypeComboBox" Margin="20 10 20 10" FontSize="18" VerticalAlignment="Center" Grid.Row="0" Grid.Column="3" ItemsSource="{Binding RequestType}" SelectedValuePath="Key" DisplayMemberPath="Value"/>
+        <Label x:Name="ApiKeyLabel" FontSize="18" Margin="20 10 20 10" Grid.Row="1" Grid.Column="0">ApiKey</Label>
+        <TextBox x:Name="ApiKeyTextBox" FontSize="18" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="20 10 20 10" Text="{Binding ApiKey}"></TextBox>
+        <Button x:Name="JsonCreateButtom" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Width="150" FontSize="18" Margin="20 10 20 10" HorizontalAlignment="Right" Click="JsonCreateButtom_Click">Jsonを作成する</Button>
+        <TextBox x:Name="JsonResultText" Margin="20 10 20 10" FontSize="18" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding ResultJsonData}"/>
+    </Grid>
+</Window>
